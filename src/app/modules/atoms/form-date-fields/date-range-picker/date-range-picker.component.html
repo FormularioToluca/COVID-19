@@ -1,0 +1,26 @@
+<rb-tab-panel [renderHiddenTabs]="true" (tabChanged)="tabChanged($event)" [tab]="tab">
+  <div *rbTabPanelItem="absoluteLabel; id: 'absolute'" class="picker-calendars">
+    <div class="startDate" #startDate></div>
+    <div class="endDate" #endDate></div>
+  </div>
+  <ng-container *ngIf="allowRelative">
+    <div *rbTabPanelItem="relativeLabel; id: 'relative'" class="picker-relative">
+      <ng-container *ngIf="relativeValue">
+        <rb-form-relative-time-input [label]="startLabel" [ngModel]="relativeValue[0]"
+                                     (ngModelChange)="updateRelativeValue($event, 0)"></rb-form-relative-time-input>
+        <rb-form-relative-time-input [label]="endLabel" [ngModel]="relativeValue[1]"
+                                     (ngModelChange)="updateRelativeValue($event, 1)"></rb-form-relative-time-input>
+      </ng-container>
+
+    </div>
+  </ng-container>
+  <ng-container *ngIf="presets?.length">
+    <div *rbTabPanelItem="presetsLabel; id: 'preset'">
+      <div *ngFor="let p of presets">
+        <ng-container *ngIf="allowRelative && p.relativeRange || p.absoluteRange">
+          <a href="javascript:" class="rb-dropdown-item" [class.active]="isPreset(p)" (click)="setPreset(p)">{{p.label}}</a>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</rb-tab-panel>

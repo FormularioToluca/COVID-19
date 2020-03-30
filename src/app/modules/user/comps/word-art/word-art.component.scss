@@ -1,0 +1,85 @@
+p{
+  color: #f35626;
+  font-weight: bold;
+  background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 5s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  
+  to {
+    -webkit-filter: hue-rotate(360deg);
+  }
+}
+
+.article{
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 2rem;
+}
+.word1{
+  transform: rotate(-12deg);
+  white-space: initial;
+}
+
+.word2{
+  font-size: 7rem;
+  font-weight: bold;
+  color: yellow;
+  transform: rotate(-10deg);
+  white-space: initial;
+}
+
+
+
+.word3{
+  font-size: 6rem;
+  font-weight: lighter;
+  color: goldenrod;
+  transform: rotate(-8deg);
+  white-space: initial;
+}
+
+.word4{
+  font-size: 5rem;
+  font-weight: lighter;
+  color: goldenrod;
+  transform: rotate(-6deg);
+  white-space: initial;
+}
+
+.word5{
+  font-size: 4rem;
+  font-weight: lighter;
+  color: goldenrod;
+  transform: rotate(-4deg);
+  white-space: initial;
+}
+
+.word6{
+  font-size: 3rem;
+  font-weight: lighter;
+  color: goldenrod;
+  transform: rotate(-4deg);
+  white-space: initial;
+}
+
+.word7{
+  font-size: 2rem;
+  font-weight: lighter;
+  color: goldenrod;
+  transform: rotate(-4deg);
+  white-space: initial;
+}
+
+.word8{
+  font-size: 1rem;
+  font-weight: lighter;
+  color: goldenrod;
+  white-space: initial;
+}

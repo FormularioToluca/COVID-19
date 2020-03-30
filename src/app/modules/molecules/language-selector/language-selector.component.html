@@ -1,0 +1,12 @@
+<a href="javascript:" [rbDropdown]="items" [position]="'right'" class="language-selector-link language rb-dropdown-toggle">
+  {{language}}
+</a>
+<ng-template #items>
+  <ul class="link-list">
+    <li *ngFor="let l of languages">
+      <a href="javascript:" (click)="selectLanguage(l)" [class.active]="l.id === language">
+        <span class="language">{{l.id}}</span> | {{l.name}}
+      </a>
+    </li>
+  </ul>
+</ng-template>

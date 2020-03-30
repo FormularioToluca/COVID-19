@@ -1,0 +1,67 @@
+<div class="input-wrapper" [class.no-label]="!label">
+
+  <button [rbDropdown]="dropdownContent"
+          [id]="id"
+          [autoClose]="false"
+          [disabled]="disabled !== undefined"
+          (blur)="onTouched()"
+          class="rb-select-btn input">
+
+    <ng-container *ngIf="title">
+      <ng-container *ngTemplateOutlet="title.templateRef; context: titleContext"></ng-container>
+    </ng-container>
+    <ng-container *ngIf="!title">
+      <ng-container *ngIf="titleContext.count === 1">
+        <ng-container *ngIf="option">
+          <ng-container
+            *ngTemplateOutlet="option.templateRef; context: {$implicit: titleContext.firstItem.item}"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="!option">
+          {{titleContext.firstItem.item | json}}
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="titleContext.count > 1">{{titleContext.count}} items selected</ng-container>
+    </ng-container>
+
+  </button>
+
+  <label [for]="id" class="label rb-select-label">
+    {{!isLabelTemplate()?label:''}}
+    <ng-container *ngIf="isLabelTemplate()">
+      <ng-container *ngTemplateOutlet="label"></ng-container>
+    </ng-container>
+  </label>
+  <span class="select-icon rb-ic rb-ic-down"></span>
+  <span class="input-background"></span>
+</div>
+<rb-form-errors [messages]="messages"></rb-form-errors>
+
+
+<ng-template #dropdownContent>
+  <ng-container *ngIf="selectAllLabel">
+    <rb-form-multi-checkbox [numStates]="numStates"
+                            class="list-item-input"
+                            [ngModel]="allStates"
+                            (ngModelChange)="allStatesChange($event)">
+      {{selectAllLabel}}
+    </rb-form-multi-checkbox>
+    <hr class="no-margin">
+  </ng-container>
+
+  <div class="dropdown-limited">
+    <ng-container *ngFor="let item of _items; trackBy: getItemTrackId">
+      <rb-form-multi-checkbox [numStates]="numStates"
+                              class="list-item-input"
+                              [ngModel]="item.state"
+                              (ngModelChange)="updateStateOfItem(item, $event)">
+        <ng-container *ngIf="option">
+          <ng-container *ngTemplateOutlet="option.templateRef; context: {$implicit: item.item}"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="!option">
+          {{item.item | json}}
+        </ng-container>
+      </rb-form-multi-checkbox>
+    </ng-container>
+  </div>
+
+</ng-template>

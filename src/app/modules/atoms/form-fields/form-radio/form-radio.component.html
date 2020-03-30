@@ -1,0 +1,7 @@
+<div class="input-wrapper">
+  <input type="radio" [id]="id + 'input'" [name]="name" [readonly]="readonly"
+         (click)="updateValue($event.target.checked)" #input>
+  <label [for]="id + 'input'">  {{!isLabelTemplate() ? label : ''}}</label>
+</div>
+
+<rb-form-errors [messages]="messages"></rb-form-errors>

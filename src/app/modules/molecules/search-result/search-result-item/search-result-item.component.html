@@ -1,0 +1,15 @@
+<div class="M-Search-SearchResultItem">
+  <div class="M-Search-SearchResultItem__wrapper">
+    <div class="M-Search-SearchResultItem__page" *ngIf="page">
+      <ng-container *ngIf="isTemplate(page)" ngTemplateOutlet="page"></ng-container>
+      {{ !isTemplate(page) ? page : '' }}
+    </div>
+    <div class="M-Search-SearchResultItem__title">
+      <ng-container *ngIf="isTemplate(itemTitle)" ngTemplateOutlet="title"></ng-container>
+      {{ !isTemplate(itemTitle) ? itemTitle : '' }}
+    </div>
+    <div class="M-Search-SearchResultItem__text">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

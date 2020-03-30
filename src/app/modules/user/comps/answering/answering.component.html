@@ -1,0 +1,41 @@
+<div class="container-fluid" *ngIf="_ready; else loading">
+    <div class="card" style="padding: 1.2rem;">
+        <h3 class="card-title" *ngIf="_quest">{{_quest.title}}</h3>
+        <h6 class="card-subtitle mb-2 text-muted">Evaluando a: {{_participant.name}}</h6>
+    </div>
+    <br>
+    <div class="card" style="padding: 1rem;">
+        <div class="card-body">
+            <div *ngFor="let q of _questions; let i = index">
+                <p class="text-left">{{replace(q.item1.body,q.item1.fillable)}}</p>
+                <div *ngIf="q.item2.$values[0].body != null; else void">
+                    <div class="form-check" *ngFor="let o of q.item2.$values">
+                        <input class="form-check-input" type="radio" [ngClass]="(_errors[i] != null)?'is-invalid':'form-check-input'" name="exampleRadios" [(ngModel)]="_model[i]" id="exampleRadios1"
+                            [value]="o.value" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            {{o.body}}
+                        </label>
+                        <div class="invalid-feedback"><p>{{_errors[i]}}</p></div>
+                    </div>
+                </div>
+                <ng-template #void>
+                    <div class="form-group" *ngFor="let o of q.item2.$values; let j = index">
+                        <input type="text" class="form-control" id="exampleFormControlInput1" [ngClass]="(_errors[i][j] != null)?'is-invalid':'form-control'" [(ngModel)]="_model[i][j]" placeholder="Palabra">
+                        <div class="invalid-feedback"><p>{{_errors[i][j]}}</p></div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="button" (click)="save()" class="btn btn-primary mr-2">Guardar respuestas</button>
+            <button type="button" (click)="close()" class="btn btn-warning">Cancelar</button>
+        </div>
+    </div>
+</div>
+<ng-template #loading>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</ng-template>

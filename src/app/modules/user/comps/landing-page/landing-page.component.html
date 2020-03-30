@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="card" style="padding: 1rem;">
+    <div class="row">
+      <div class="col sm">
+        <label for="selection1">Pruebas por:</label>
+        <select class="custom-select" name="selection1" #type label="Select" (change)="changeType(type.value)">
+          <option value="0" disabled selected>Pruebas por</option>
+          <option value="1">Grupo</option>
+          <option value="2">Usuario</option>
+        </select>
+      </div>
+      <div class="col sm" *ngIf="_byGroups">
+        <label for="selection2">Grupo</label>
+        <select class="custom-select" name="selection2" #group (change)="getQuestsByGroup(group.value)" label="Select">
+          <option value="0" disabled selected>Grupos</option>
+          <option *ngFor="let gr of groups" [value]="gr.id">{{gr.name}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="card" style="padding: 1rem">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <th>Nombre del cuestionario</th>
+          <th>Descripcion</th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let q of quests">
+            <td>{{q.title}}</td>
+            <td>{{q.description}}</td>
+            <td><button *ngIf="q.active; else disabled" type="button" class="rb-btn" (click)="getParticipants(q.id)">
+                Responder para
+              </button>&nbsp;
+              <ng-template #disabled>
+                <p>La prueba a expirado</p>
+              </ng-template>
+            </td>
+            <td>
+              <button *ngIf="_byGroups" type="button" class="rb-btn" (click)="ourResults(q.id)">
+                  Ver nuestros resultados
+              </button>
+              <button *ngIf="!_byGroups" type="button" class="rb-btn" (click)="myResults(q.id)">
+                Ver mis resultados
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
+  <div class="d-flex justify-content-center align-items-center" *ngIf="_byGroups && participants != null">
+    <div class="card" style="padding:0.5rem">
+      <ul class="list-group">
+        <li class="list-group-item" selected disabled>Grupos a evaluar  <button type="button" (click)="participants = null" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button></li>
+        <a *ngFor="let p of participants" [routerLink]="['/answering', _type,_selectedQuest,p.id]"
+          class="list-group-item list-group-item-action">{{p.name}}</a>
+      </ul>
+    </div>
+  </div>
+</div>

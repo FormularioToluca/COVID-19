@@ -1,0 +1,6 @@
+<h2 class="dialog-title">{{dialogTitle}}</h2>
+<ng-content></ng-content>
+<div class="dialog-buttons" *ngIf="showButtons">
+  <button class="rb-btn" (click)="close()">{{cancelBtnLabel ? cancelBtnLabel : 'Cancel'}}</button>&nbsp;
+  <button class="rb-btn rb-primary" (click)="close(true)">{{okBtnLabel ? okBtnLabel : 'OK'}}</button>
+</div>

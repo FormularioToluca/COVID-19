@@ -1,0 +1,26 @@
+<div class="input-wrapper d-flex" [class.no-label]="!label">
+  <div class="chips">
+    <ng-container *ngFor="let chip of chips; let i = index">
+      <div (click)="activeIndex = i" [ngClass]="{'disabled': disabled, 'selected': activeIndex === i}"
+           class="rb-chip mr-1">
+        <span>{{chip}}</span>
+        <a href="javascript:" (click)="removeChip(chip)" style="margin-left: 4px;"><span
+          class="rb-ic rb-ic-close"></span></a>
+      </div>
+    </ng-container>
+  </div>
+  <form (ngSubmit)="submit()" class="flex-grow-1">
+    <input #input class="input chips-input" [id]="id" (click)="activeIndex = null"
+           (keydown)="onKeyDown($event)"
+           (blur)="onBlur()"
+           [(ngModel)]="chipInput"
+           [placeholder]="placeholder"
+           [ngStyle]="{'margin-left': chips.length == 0 ? 0 : '1rem'}"
+           name="chipInput"
+           type="text"
+           minlength="1">
+    <label class="label" [for]="id">{{!isLabelTemplate() ? label : ''}}</label>
+    <span class="input-background"></span>
+  </form>
+</div>
+<rb-form-errors [messages]="messages"></rb-form-errors>

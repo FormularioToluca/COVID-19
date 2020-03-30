@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row" *ngIf="_ready; else loading">
+        <div class="col-2">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" (click)="change(q.id,q.open)" role="tab"
+                    aria-controls="v-pills-home"
+                    *ngFor="let q of _questions; let i = index">{{(i+1)+'.- ' + replace(q.body,q.fillable)}}</a>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                    aria-labelledby="v-pills-home-tab">
+                    <app-word-art [question]="'Pregunta'" *ngIf="(_router.url.includes('open'))"></app-word-art>
+                    <app-charts *ngIf="(_router.url.includes('close'))"></app-charts>                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #loading>
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,13 @@
+<ng-container *ngIf="breadcrumbs.length >= minElements">
+  <div class="limit breadcrumbs-container">
+    <ul class="breadcrumbs">
+      <li *ngFor="let data of breadcrumbs">
+        <a [routerLink]="data.urlSegments">{{data.title}}</a>
+      </li>
+    </ul>
+    <div class="breadcrumbs-right">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <hr class="no-margin">
+</ng-container>

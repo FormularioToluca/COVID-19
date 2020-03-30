@@ -1,0 +1,25 @@
+<div class="board-item">
+  <div class="board-item-body">
+    <div class="board-item-icon" *ngIf="icon">
+      <ng-container *ngTemplateOutlet="icon.templateRef"></ng-container>
+    </div>
+    <div class="board-item-content">
+      <ng-container *ngTemplateOutlet="body?.templateRef"></ng-container>
+    </div>
+  </div>
+  <div *ngIf="counts && counts.length" class="board-item-counts">
+    <ng-container *ngFor="let item of counts">
+      <div class="board-item-count">
+        <ng-container *ngTemplateOutlet="item.templateRef"></ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <div class="board-item-status" *ngIf="statusIcon">
+    <div class="board-item-status-icon">
+      <ng-container *ngIf="isTemplateStatus()">
+        <ng-container *ngTemplateOutlet="statusIcon"></ng-container>
+      </ng-container>
+      <rb-icon *ngIf="!isTemplateStatus()" [name]="statusIcon"></rb-icon>
+    </div>
+  </div>
+</div>

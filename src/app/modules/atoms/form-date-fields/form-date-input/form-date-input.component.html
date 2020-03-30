@@ -1,0 +1,18 @@
+<div class="input-wrapper" [class.no-label]="!label">
+
+  <input [type]="type" [id]="id + 'input'"
+         class="input with-icon"
+         (blur)="onTouched()"
+         [readonly]="isReadonly()"
+         #input>
+  <span class="input-icon rb-ic rb-ic-calendar" (click)="toggle()"></span>
+  <label class="label" [for]="id + 'input'">
+    {{!isLabelTemplate()?label:''}}
+    <ng-container *ngIf="isLabelTemplate()">
+      <ng-container *ngTemplateOutlet="label"></ng-container>
+    </ng-container>
+  </label>
+  <span class="input-background"></span>
+</div>
+
+<rb-form-errors [messages]="messages"></rb-form-errors>

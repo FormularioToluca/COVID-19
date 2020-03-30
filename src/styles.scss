@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+$font-path: "../node_modules/@inst-iot/bosch-angular-ui-components/assets/";
+$rb-extended-breakpoints: false;  // whether to use extended breakpoints xxl and xxxl
+@import "~@inst-iot/bosch-angular-ui-components/styles/global.scss";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~ngx-toastr/toastr-bs4-alert';

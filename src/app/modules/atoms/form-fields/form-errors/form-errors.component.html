@@ -1,0 +1,5 @@
+<div class="error-messages" *ngIf="control && control.invalid && errors.length">
+  <div *ngFor="let item of errors; trackBy: getItemName">
+    <ng-container *ngTemplateOutlet="item.message; context: item"></ng-container>
+  </div>
+</div>

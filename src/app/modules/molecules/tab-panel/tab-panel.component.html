@@ -1,0 +1,81 @@
+<div class="tab-panel-container">
+  <div class="tab-panel limit" #tabPanel>
+    <rb-navigation type="tab" class="tab-panel-left">
+      <ng-container *ngFor="let tabItem of tabItemsLeft; template: tabTpl"></ng-container>
+    </rb-navigation>
+    <rb-navigation type="tab" class="tab-panel-center">
+      <ng-container *ngFor="let tabItem of tabItemsCenter; template: tabTpl"></ng-container>
+    </rb-navigation>
+    <rb-navigation type="tab" class="tab-panel-right">
+      <ng-container *ngFor="let tabItem of tabItemsRight; template: tabTpl"></ng-container>
+    </rb-navigation>
+  </div>
+</div>
+<div class="tab-panel-placeholder" #panelPlaceholder></div>
+
+<ng-container *ngFor="let tabItem of tabItems">
+  <div class="tab-content" *ngIf="destroyTabs && tabItem.active || !destroyTabs && tabItem.shown || renderHiddenTabs"
+       [hidden]="!tabItem.active">
+    <ng-container *ngTemplateOutlet="tabItem.templateRef; context: tabItem"></ng-container>
+  </div>
+</ng-container>
+
+<ng-template #tabTpl let-tabItem>
+  <ng-container *ngIf="tabItem.type === 'dropdown'">
+    <a href="javascript:" class="rb-dropdown-toggle"
+       [class.active]="tabItem.active"
+       [rbDropdown]="tabItem.templateRef"
+       [position]="tabItem.position"
+       [autoClose]="tabItem.autoClose">
+      <ng-container *ngIf="tabItem.titleStr">
+        {{tabItem.titleStr}}
+      </ng-container>
+      <ng-container *ngIf="tabItem.titleTpl">
+        <ng-container
+          *ngTemplateOutlet="tabItem.titleTpl; context: tabItem"></ng-container>
+      </ng-container>
+    </a>
+  </ng-container>
+  <ng-container *ngIf="tabItem.type === 'content'">
+    <ng-container *ngIf="tabItem.titleStr">
+      {{tabItem.titleStr}}
+    </ng-container>
+    <ng-container *ngIf="tabItem.titleTpl">
+      <ng-container
+        *ngTemplateOutlet="tabItem.titleTpl; context: tabItem"></ng-container>
+    </ng-container>
+    <ng-container
+      *ngTemplateOutlet="tabItem.templateRef; context: tabItem"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="tabItem.type === 'custom'">
+    <ng-container *ngIf="tabItem.titleStr">
+      {{tabItem.titleStr}}
+    </ng-container>
+    <ng-container *ngIf="tabItem.titleTpl">
+      <ng-container
+        *ngTemplateOutlet="tabItem.titleTpl; context: tabItem"></ng-container>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="tabItem.type === 'tab'">
+    <a href="javascript:" [class.active]="tabItem.active" (click)="showTab(tabItem.id)">
+      <ng-container *ngIf="tabItem.titleStr">
+        {{tabItem.titleStr}}
+      </ng-container>
+      <ng-container *ngIf="tabItem.titleTpl">
+        <ng-container
+          *ngTemplateOutlet="tabItem.titleTpl; context: tabItem"></ng-container>
+      </ng-container>
+    </a>
+  </ng-container>
+  <ng-container *ngIf="tabItem.type === 'text'">
+    <span class="text-item">
+      <ng-container *ngIf="tabItem.titleStr">
+        {{tabItem.titleStr}}
+      </ng-container>
+      <ng-container *ngIf="tabItem.titleTpl">
+        <ng-container
+          *ngTemplateOutlet="tabItem.titleTpl; context: tabItem"></ng-container>
+      </ng-container>
+    </span>
+  </ng-container>
+</ng-template>

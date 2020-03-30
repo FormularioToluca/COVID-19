@@ -1,0 +1,6 @@
+<div class="centered-container" *ngIf="!loadingEntity?.error">
+  <rb-loading-spinner [size]="size"></rb-loading-spinner>
+</div>
+<rb-callout *ngIf="loadingEntity?.error">
+  <rb-error-format [error]="loadingEntity.error"></rb-error-format>
+</rb-callout>

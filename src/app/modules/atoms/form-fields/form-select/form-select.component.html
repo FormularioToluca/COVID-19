@@ -1,0 +1,19 @@
+<div class="input-wrapper" [class.no-label]="!label">
+
+  <select class="input select"
+          [id]="id + 'input'"
+          (blur)="onTouched()"
+          (change)="updateValue($event.target.value)" #input>
+    <ng-content></ng-content>
+  </select>
+
+  <label [for]="id + 'input'" class="label select-label">
+    {{!isLabelTemplate()?label:''}}
+    <ng-container *ngIf="isLabelTemplate()">
+      <ng-container *ngTemplateOutlet="label"></ng-container>
+    </ng-container>
+  </label>
+  <span class="select-icon rb-ic rb-ic-down"></span>
+  <span class="input-background"></span>
+</div>
+<rb-form-errors [messages]="messages"></rb-form-errors>

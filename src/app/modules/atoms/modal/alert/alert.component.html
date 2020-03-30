@@ -1,0 +1,9 @@
+<rb-icon [name]="type + '-filled'"></rb-icon>
+<h2 class="dialog-title">{{alertTitle}}</h2>
+<div class="dialog-text">
+  <ng-content></ng-content>
+</div>
+<div class="dialog-buttons">
+  <button class="rb-btn" (click)="close(true)" *ngIf="okBtnLabel">{{okBtnLabel}}</button>
+  <button class="rb-btn" (click)="close()" *ngIf="cancelBtnLabel">{{cancelBtnLabel}}</button>
+</div>

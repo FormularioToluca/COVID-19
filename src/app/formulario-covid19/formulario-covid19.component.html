@@ -1,0 +1,111 @@
+<div class="container card col-12">
+    <h2>Registro de Entrada - Toluca</h2>
+        <div class="row">
+            <div class="col-12">
+                <p class="esp">Num Empleado</p>
+                <p class="eng">Employee Number</p>
+                <rb-form-input type="number" [(ngModel)]="data.employee"></rb-form-input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="esp">Departamento</p>
+                <p class="eng">Department</p>
+                <rb-form-input [(ngModel)]="data.depto"></rb-form-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p class="esp">Fecha de entrada a TlP</p>
+                <p class="eng">Entry type</p>
+                <rb-form-date-input [(ngModel)]="data.date"></rb-form-date-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p class="esp">Tipo de entrada a TlP</p>
+                <p class="eng">Entry date</p>
+                <select class="custom-select" [(ngModel)]="data.type">
+                    <option value="turno_1">Turno 1</option>
+                    <option value="turno_2">Turno 2</option>
+                    <option value="turno_3">Turno 3</option>
+                    <option value="turno_4">Turno 4</option>
+                    <option value="medio_manana">Medio día por la mañana</option>
+                    <option value="medio_tarde">Medio día por la tarde</option>
+                    <option value="completo">Día completo</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p class="esp">¿Los empleados toman su propia temperatura antes de venir a TlP?</p>
+                <p class="eng">Did the employees check temperature at home before went to TlP</p>
+            </div>
+            <div class="col-12">
+                <rb-form-input [(ngModel)]="data.temperature"></rb-form-input>
+            </div>
+            <!-- <div class="col-6" style="text-align: center;">
+                <rb-form-radio label="Si/Yes" name="p1"></rb-form-radio>
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <rb-form-radio label="No/No" name="p1"></rb-form-radio>
+            </div> -->
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p class="esp">¿Los empleados usan el transporte público para y después del trabajo (excluyendo los autobuses de la empresa)?</p>
+                <p class="eng">Did the employees use public transportation to/after work(not including shuttle bus)</p>
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <rb-form-radio label="Si/Yes" name="p2" value="yes" [(ngModel)]="data.transport"></rb-form-radio>
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <rb-form-radio label="No/No" name="p2" value="no" [(ngModel)]="data.transport"></rb-form-radio>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p class="esp">¿Los empleados van a lugares concurridos o lugares públicos después del trabajo?</p>
+                <p class="eng">Did the employees go to people-intensive plance or public place after work?</p>
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <rb-form-radio label="Si/Yes" name="p3" value="yes" [(ngModel)]="data.places"></rb-form-radio>
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <rb-form-radio label="No/No" name="p3" value="no" [(ngModel)]="data.places"></rb-form-radio>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p class="esp">¿Has estado en contacto con alguien que ha sido diagnosticado de coronavirus en los ultimos 14 dias?</p>
+                <p class="eng">Have you been in contact with a positive Coronvirus person in the last 14 days?</p>
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <rb-form-radio label="Si/Yes" name="p4" value="yes" [(ngModel)]="data.contact"></rb-form-radio>
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <rb-form-radio label="No/No" name="p4" value="no" [(ngModel)]="data.contact"></rb-form-radio>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p class="esp">¿Los empleados evitan reunirse y mantener una cierta distancia, como durante las comidas, evitar cara a cara y mantener la distancia durante los descansos, etc.?</p>
+                <p class="eng">Did the employees avoid to gather together and keep some distance, e.g. no face to face and keep distance at eating time, rest time, etc.?</p>
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <rb-form-radio label="Si/Yes" name="p5"  value="yes" [(ngModel)]="data.reunions"></rb-form-radio>
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <rb-form-radio label="No/No" name="p5" value="no" [(ngModel)]="data.reunions"></rb-form-radio>
+            </div>
+        </div>
+
+        <button class="rb-btn rb-primary" style="width: 100%;" [disabled]="sending" (click)="sending=true;submitInfo()">Enviar / Submit</button>
+</div>

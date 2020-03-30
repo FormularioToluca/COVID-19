@@ -1,0 +1,22 @@
+<div class="input-wrapper" [class.disabled]="input.disabled">
+  <label [for]="id + 'input'">
+    <input type="checkbox" class="checkbox-control"
+           (blur)="onTouched()" (change)="updateValue($event.target.checked)"
+           [id]="id + 'input'" #input>
+
+    <span class="checkbox-icon">
+      <span class="check rb-ic rb-ic-checkmark"></span>
+    </span>
+
+    <span class="label-text">
+      {{!isLabelTemplate()?label:''}}
+      <ng-container *ngIf="isLabelTemplate()">
+        <ng-container *ngTemplateOutlet="label"></ng-container>
+      </ng-container>
+      <ng-content></ng-content>
+    </span>
+
+  </label>
+
+</div>
+<rb-form-errors [messages]="messages"></rb-form-errors>

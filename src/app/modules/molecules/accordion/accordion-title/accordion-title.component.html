@@ -1,0 +1,8 @@
+<div class="accordion-row" [class.open]="open" (click)="toggle()">
+  <h5>
+    <ng-content></ng-content>
+  </h5>
+  <a href="javascript:" class="accordion-toggle">
+    <span class="rb-ic" [class.rb-ic-add]="!open" [class.rb-ic-less-minimize]="open"></span>
+  </a>
+</div>

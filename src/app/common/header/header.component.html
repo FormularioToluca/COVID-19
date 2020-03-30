@@ -1,0 +1,37 @@
+<rb-full-header>
+    <nav *rbMainNavItems>
+      <a [routerLink]="['/home']">Inicio</a>
+    </nav> 
+  
+    <nav *rbMetaNavItems>
+      <a href="#bosch">Bosch</a>
+      <a href="#contact">Contact</a>
+      <a href="#help">Help</a>
+    </nav>
+  
+    <nav *rbActionNavItems class="icon-nav">
+      <p><rb-icon name="ic-user"></rb-icon>{{logged.displayName}}</p>
+    </nav>
+  
+    <div *rbSubBrandHeader>iQuest</div>
+  
+  </rb-full-header>
+  
+  <ng-template #userPopover>
+    RPR1TL
+  </ng-template>
+  
+  <br>
+  <router-outlet></router-outlet>
+  
+  <rb-footer-nav>
+    <span class="copyright">
+      &copy; 2018 Bosch Software Innovations MFC-BPS    
+    </span>
+    <nav>
+      <a href="">Imprint</a>
+      <a href="">Legal Notice</a>
+      <a href="">Privacy Policy</a>
+      <a href="">Privacy Settings</a>
+    </nav>
+  </rb-footer-nav>

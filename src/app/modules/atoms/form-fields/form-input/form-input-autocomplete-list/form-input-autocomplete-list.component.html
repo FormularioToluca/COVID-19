@@ -1,0 +1,7 @@
+<ng-template #tpl let-list="list" let-active="active" let-focus="focus" let-select="select">
+  <a href="javascript:"
+     *ngFor="let value of list" (click)="select(value)"
+     class="rb-dropdown-item"
+     [class.active]="active === value"
+     [class.focus]="focus === value">{{value}}</a>
+</ng-template>

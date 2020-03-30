@@ -1,0 +1,26 @@
+<div class="input-wrapper" [class.no-label]="!label">
+  <label [for]="id + 'input'" #labelElement [class]="stateLabel">
+    <input type="checkbox"
+           (change)="toggleState()"
+           (blur)="onTouched()"
+           class="checkbox-control"
+           [id]="id + 'input'"
+           #input>
+
+    <span class="checkbox-icon">
+      <span class="check rb-ic rb-ic-checkmark"></span>
+      <span class="cross rb-ic rb-ic-close"></span>
+    </span>
+
+    <span class="label-text">
+      {{!isLabelTemplate()?label:''}}
+      <ng-container *ngIf="isLabelTemplate()">
+        <ng-container *ngTemplateOutlet="label"></ng-container>
+      </ng-container>
+      <ng-content></ng-content>
+    </span>
+
+  </label>
+
+</div>
+<rb-form-errors [messages]="messages"></rb-form-errors>

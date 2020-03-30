@@ -1,0 +1,39 @@
+<div class="header-placeholder" #placeholder></div>
+<header class="header" #header>
+  <div class="supergraphic bar"></div>
+  <div class="header-content limit">
+    <div class="logo" *ngIf="customLogo">
+      <ng-container *ngTemplateOutlet="customLogo.templateRef"></ng-container>
+    </div>
+    <div class="logo" *ngIf="!customLogo">
+      <a href="https://www.bosch.com/" target="_blank">
+        <img src="assets/img/Bosch_EN_LV_RGB.png" alt="Bosch - Invented for life">
+      </a>
+    </div>
+    <div class="sub-brand" *ngIf="subBrand">
+      <div class="sub-brand-content">
+        <ng-container *ngTemplateOutlet="subBrand.templateRef"></ng-container>
+      </div>
+    </div>
+    <div class="small-nav">
+      <button class="toggler" [class.open]="open" (click)="toggle()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+    <div class="main-nav" [class.open]="open" [class.opened]="opened" *ngIf="mainNavItems">
+      <rb-navigation type="main" [itemsTemplate]="mainNavItems"></rb-navigation>
+    </div>
+    <div class="action-nav">
+      <rb-navigation type="action" [itemsTemplate]="actionNavItems"></rb-navigation>
+    </div>
+    <div class="sub-nav" [class.open]="open" [class.opened]="opened" *ngIf="subNavItems">
+      <rb-navigation type="sub" [itemsTemplate]="subNavItems"></rb-navigation>
+    </div>
+    <div class="meta-nav" [class.open]="open" [class.opened]="opened" *ngIf="metaNavItems">
+      <rb-navigation type="meta" [itemsTemplate]="metaNavItems"></rb-navigation>
+    </div>
+  </div>
+
+</header>

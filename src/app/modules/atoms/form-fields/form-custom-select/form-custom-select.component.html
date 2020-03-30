@@ -1,0 +1,35 @@
+<div class="input-wrapper" [class.no-label]="!label">
+
+  <button [rbDropdown]="dropdownContent"
+          [id]="id"
+          [autoClose]="autoClose"
+          [disabled]="disabled !== undefined"
+          (blur)="onTouched()"
+          class="rb-select-btn input">
+    <ng-container *ngIf="!options.length">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </ng-container>
+    <span #activeElement></span>
+  </button>
+
+  <label [for]="id" class="label rb-select-label">
+    {{!isLabelTemplate() ? label : ''}}
+    <ng-container *ngIf="isLabelTemplate()">
+      <ng-container *ngTemplateOutlet="label"></ng-container>
+    </ng-container>
+  </label>
+  <span class="select-icon rb-ic rb-ic-down"></span>
+  <span class="input-background"></span>
+</div>
+<rb-form-errors [messages]="messages"></rb-form-errors>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
+
+<ng-template #dropdownContent let-close="close">
+  <ng-container *ngIf="options.length">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </ng-container>
+  <ng-container *ngTemplateOutlet="selectionTpl; context: {select: updateValue, close: close}"></ng-container>
+</ng-template>

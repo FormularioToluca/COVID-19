@@ -1,0 +1,11 @@
+<div class="modal-box" role="dialog" #box>
+  <button class="close-btn rb-btn rb-passive-link" (click)="close()" *ngIf="options.showClose"><rb-icon name="close"></rb-icon></button>
+
+  <ng-container *ngIf="contentTpl">
+    <ng-container *ngTemplateOutlet="contentTpl; context: {close: close}"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="contentComponent">
+    <ng-container *ngComponentOutlet="contentComponent"></ng-container>
+  </ng-container>
+  {{contentText ? contentText : ''}}
+</div>
