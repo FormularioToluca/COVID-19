@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'covid19';
   constructor(private _auth:AuthService, private _router:Router){
-    this._router.navigate(['formulario']);
+    //this._router.navigate(['formulario']);
     // _auth.authUser().then(data=>{
       
     // }).catch(error=>{

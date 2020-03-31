@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
     "@inst-iot/bosch-angular-ui-components": "^0.5.23",
+    "@ng-bootstrap/ng-bootstrap": "^6.0.2",
     "bootstrap": "^4.3.1",
     "firebase": "^7.13.1",
     "flatpickr": "^4.6.3",
@@ -30,6 +31,7 @@
     "rxjs": "~6.4.0",
     "sweetalert2": "^9.10.7",
     "tslib": "^1.10.0",
+    "xlsx": "^0.15.6",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

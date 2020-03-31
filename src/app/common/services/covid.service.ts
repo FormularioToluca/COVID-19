@@ -16,4 +16,14 @@ export class CovidService {
         .then(res => { resolve(res) }, err => reject(err));
     });
   }
+
+
+  getAnswers(data:any) {
+    return new Promise<any>((resolve, reject) => {
+      this.firestore.collection("suvery", ref => ref.where('date','==',data.date)).valueChanges().subscribe(val=>{
+        resolve(val)
+      }, error=>{reject(error)})
+
+    })
+  }
 }

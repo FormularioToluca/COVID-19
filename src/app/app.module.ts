@@ -16,12 +16,15 @@ import { environment } from '../environments/environment'
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ReportesComponent } from './reportes/reportes.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ErrorComponent,
     FormularioCovid19Component,
+    ReportesComponent,
 
   ],
   imports: [
@@ -35,7 +38,8 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,ReactiveFormsModule, FormsModule
+    AngularFirestoreModule,ReactiveFormsModule, FormsModule,
+    NgbModule,
   ],
   providers: [
     {
