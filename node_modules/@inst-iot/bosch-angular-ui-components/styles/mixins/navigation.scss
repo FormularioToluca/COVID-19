@@ -1,0 +1,43 @@
+// navigation mixins
+//
+// These are a set of mixings that render the navigation,
+// and handle their animations
+//
+// Usage:
+// <code>
+// @include navigationLink($font-size);
+// @include navigationList($font-size);
+// </code>
+//
+// Styleguide 0.4.6
+
+@mixin navigationLink ($font-size) {
+
+  font-size: $font-size;
+  position: relative;
+  transition: color $ease-in-out-quint $transition-duration-s;
+  display: inline-block;
+
+  &--active {
+    // doiuse-disable outline
+    // As we do not use outline-offset the partial support by IE is not an issue for us
+    outline: none;
+    // doiuse-enable
+    text-decoration: none;
+    color: $navigation-link-color--active;
+  }
+}
+
+@mixin navigationList($font-size) {
+  padding: 0;
+  margin: 0;
+
+  .M-Navigation__item {
+    list-style: none;
+  }
+
+  .M-Navigation__link {
+
+    @include navigationLink($font-size);
+  }
+}

@@ -1,0 +1,40 @@
+@import '../imports';
+
+rb-footer-nav {
+  footer {
+    background-color: $color-white-paper-white;
+    border-top: 1px solid $color-gray-mercury;
+    margin-top: $default-spacing;
+    box-sizing: border-box;
+    &.sticky {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+  nav {
+    display: inline-block;
+    a {
+      display: inline-block;
+      font-size: map-get($font-sizes, smaller);
+      padding: $default-spacing;
+      &:hover {
+
+      }
+    }
+  }
+
+  .footer-placeholder {
+    display: none;
+  }
+
+  footer.sticky ~ .footer-placeholder {
+    display: block;
+  }
+
+  .copyright {
+    padding: $default-spacing;
+    font-weight: bold;
+    font-size: map-get($font-sizes, smaller);
+  }
+}

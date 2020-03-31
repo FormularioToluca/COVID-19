@@ -1,0 +1,43 @@
+// appear-from-bottom
+//
+// This mixin can be used to create a vertical background gradient out of two colors with a hard cut.
+// It is useful for being animated and moving up on focus or hover.
+// Note: The whole background will be scaled up to let $background-color fill the whole element by default. This might influence your calculation.
+//
+// Usage:
+// <code>
+// @include appear-from-bottom($background-color, $background-color--active, $split: 50%, $on-hover: true, $on-focus: true);
+// </code>
+//
+// Parameters:
+//  * $background-color         - The default background color which spans the whole element by default.
+//  * $background-color--active - The background color which rises from the bottom.
+//  * $split                    - The position where to split the gradient colors.
+//  * $on-hover                 - Whether the background shift shall happen on hover
+//  * $on-focus                 - Whether the background shift shall happen on focus
+//
+// Styleguide 0.4.1
+
+@mixin appear-from-bottom($background-color, $background-color--active, $split: 50%, $on-hover: true, $on-focus: true) {
+
+  // Scale up vertically such that $background-color fills the whole element by default
+  $scale: (100% / $split) * 100%;
+  background: linear-gradient(to bottom, $background-color 0%, $background-color $split, $background-color--active $split, $background-color--active 100%);
+  background-position: 0 0;
+  background-size: 100% $scale;
+
+  @if ($on-focus) {
+
+    &:focus {
+      background-position: 0 ($scale - 100%);
+    }
+  }
+
+  @if ($on-hover) {
+
+    html:not(.is-touch) &:hover {
+      background-position: 0 ($scale - 100%);
+    }
+  }
+
+}

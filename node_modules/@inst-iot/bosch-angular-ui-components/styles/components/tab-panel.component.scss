@@ -1,0 +1,72 @@
+rb-tab-panel,
+.rb-tab-panel {
+
+  .tab-panel {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: stretch;
+    border-bottom: 1px solid $color-gray-mercury;
+
+    nav.nav-tab {
+      display: flex;
+      align-items: stretch;
+      flex-wrap: wrap;
+      height: 100%;
+      > .text-item {
+        padding: $default-spacing*0.8 0;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .tab-panel-placeholder {
+    display: none;
+  }
+
+  &.large-tabs {
+    nav.nav-tab > a {
+      margin-left: 2em;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &.shaded {
+    .tab-panel {
+      background-color: $color-gray-alabaster;
+      border-bottom: 0;
+      padding: 0 $default-spacing;
+
+      .tab-panel-left .nav-tab > a.rb-dropdown-toggle:first-of-type {
+        margin-left: -$default-spacing;
+        padding-left: $default-spacing;
+      }
+      .tab-panel-right .nav-tab > a.rb-dropdown-toggle:last-of-type {
+        margin-right: -$default-spacing;
+        padding-right: $default-spacing;
+      }
+    }
+
+    &.full-width {
+      .tab-panel-placeholder {
+        min-height: 54px;
+        display: block;
+      }
+      .tab-panel-container {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        background-color: $color-gray-alabaster;
+      }
+      .tab-panel {
+        margin: 0 auto;
+      }
+    }
+
+  }
+
+
+
+}

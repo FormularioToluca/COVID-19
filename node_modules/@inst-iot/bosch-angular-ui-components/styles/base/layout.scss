@@ -1,0 +1,135 @@
+// doiuse-disable
+// Disabling this because how it is used is
+// supported by IE10 and IE11 as postcss adds the prefixes
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  -ms-overflow-style: scrollbar;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+}
+
+main {
+  background-color: $background-color-base;
+  flex: 1 0 auto;
+  z-index: $main-z-index--xs;
+}
+
+.limit {
+  max-width: map-get($rb-container-max-widths, sm);
+  margin: 0 auto;
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: map-get($rb-container-max-widths, sm);
+  padding: $default-spacing;
+  margin: 0 auto;
+
+}
+
+@each $key, $width in $rb-grid-breakpoints {
+  @media (min-width: $width) {
+    .container,
+    .limit {
+      max-width: map-get($rb-container-max-widths, $key);
+    }
+  }
+}
+
+.no-limit .limit {
+  max-width: none;
+}
+
+.container-full {
+  box-sizing: border-box;
+  padding: $default-spacing;
+  margin: 0 auto;
+}
+
+.container, .container-full {
+  > h1, > h2, > h3, > h4, > h5, > h6 {
+    &:first-child {
+      margin-top: map-get($spacing-vertical, m);
+    }
+  }
+}
+
+
+.main-bg {
+  background-color: $main-content-background-color;
+}
+
+// Bootstrap does not allow to nest its containers. Furthermore they have their specific margin and
+// padding definition. The new defined container is meant to be used when there is a need for
+// nesting a Bootstrap container into a full-width bleed container with no preset padding and margin
+// values.
+.container-fullbleed {
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+//doiuse-enable
+
+iframe {
+  border: 0;
+}
+
+/* stylelint-disable declaration-no-important */
+// Angular's ng-cloak and ng-hide must be hidden up front.
+// After the execution of angular it's too late.
+// For more information read https://docs.angularjs.org/api/ng/directive/ngCloak
+[data-ng-cloak],
+.ng-hide {
+  display: none !important;
+}
+
+/* stylelint-enable declaration-no-important */
+
+hr {
+  border: none;
+  border-top: 1px solid $color-gray-alto;
+
+  &.no-margin {
+    margin: 0;
+  }
+}
+
+.shaded-container {
+  background-color: $color-gray-alabaster;
+  padding: $default-spacing;
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  @each $name, $value in $line-heights {
+    &-#{$name} {
+      padding: $default-spacing;
+      min-height: 5em * $value;
+    }
+  }
+  &.shaded {
+    background-color: $color-gray-alabaster;
+  }
+}

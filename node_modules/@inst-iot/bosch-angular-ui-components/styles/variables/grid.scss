@@ -1,0 +1,38 @@
+$rb-extended-breakpoints: false !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$grid-breakpoints-extended: (
+  xxl: 1600px,
+  xxxl: 2000px
+);
+
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+
+$container-max-widths-extended: (
+  xxl: 1500px,
+  xxxl: 1900px,
+);
+
+$rb-grid-breakpoints: $grid-breakpoints !default;
+$rb-container-max-widths: $container-max-widths !default;
+
+@if $rb-extended-breakpoints {
+  $rb-grid-breakpoints: map-merge($grid-breakpoints, $grid-breakpoints-extended);
+  $rb-container-max-widths: map-merge($container-max-widths, $container-max-widths-extended);
+}
+
+// when the navigation is collapsed
+$navigation-break: map-get($rb-grid-breakpoints, md)

@@ -1,0 +1,33 @@
+// expand-from-bottom
+//
+// A hardware accellerated transition to make the effect than an element
+// grows from the bottom
+//
+// Usage:
+// <code>
+// @include expand-from-bottom($color: $brand-primary);
+// // This sets the opacity to 1
+// @include expanding-from-bottom--active()
+// </code>
+//
+// Parameters:
+// * $color
+// * $duration
+// * $width: 100%
+// * $start-opacity
+//
+// Styleguide 0.4.2
+
+@mixin expand-from-bottom($color, $duration: $transition-duration-s, $width: 100%, $start-opacity: 0) {
+  opacity: $start-opacity;
+  width: $width;
+  background-color: $color;
+  transition: opacity $ease-in-out-quint $duration, transform $ease-in-out-quint $duration;
+  transform-origin: 0 100%;
+  transform: scaleY(0);
+}
+
+@mixin expanding-from-bottom--active() {
+  opacity: 1;
+  transform: scaleY(1);
+}

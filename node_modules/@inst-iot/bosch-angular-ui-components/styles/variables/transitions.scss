@@ -1,0 +1,22 @@
+// ==========================================================================
+// Definition of transition variables
+// ==========================================================================
+
+$transition-duration-xs: 200ms;
+$transition-duration-s: 400ms;
+$transition-duration-m: 600ms;
+$transition-duration-l: 800ms;
+
+$ease-in-out-quint: cubic-bezier(.38, .04, .35, .96);
+$translate-easing: $ease-in-out-quint;
+
+$transition-config--slow: $transition-duration-l $translate-easing;
+$transition-config--medium: $transition-duration-m $translate-easing;
+$transition-config--fast: $transition-duration-s $translate-easing;
+
+$move-horizontally-transition--left: left $transition-duration-s $translate-easing;
+$move-transition--translate: transform $transition-duration-s $translate-easing;
+$move-transition--translate--m: transform $transition-duration-m $translate-easing;
+$move-transition--translate--l: transform $transition-duration-l $translate-easing;
+
+$appear-from-top-or-bottom--slow: transform $transition-config--fast, opacity $transition-duration-s $translate-easing 180ms;

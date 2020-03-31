@@ -1,0 +1,185 @@
+
+// ==========================================================================
+// Brand colors of Bosch
+// ==========================================================================
+
+// The approach to name colors in Bosch is as follows:
+// First we define variables for the colors by calling them
+// after their name.
+// Naming convention:
+// $color-{what-color-is-it}-{name-of-the-shade}
+// All the color names chosen in this file are based on this theory:
+// https://davidwalsh.name/sass-color-variables-dont-suck
+
+// ==========================================================================
+// Main colors
+// ==========================================================================
+
+//
+// Main Colors defined in the brand
+// ==========================================================================
+
+$color-green-tropical-rain-forest: #006249;
+$color-green-lima: #78be20;
+$color-red-monza: #e20015;
+$color-fuchsia-lipstick: #b90276;
+$color-violet-meteorite: #50237f;
+$color-blue-dark-bahama-blue: #005691;
+$color-blue-dark-matisse: #1a679c;
+$color-blue-light-lochmara: #008ecf;
+$color-turquoise-bondi-blue: #00a8b0;
+$color-yellow-sunlight: #fcaf17;
+
+//
+// Light version of all the main colors
+// ==========================================================================
+
+$color-green-tropical-rain-forest--pastell: #7fb0a4;
+$color-green-lima--pastell: #bbde8f;
+$color-red-monza--pastell: #f07f8a;
+$color-fuchsia-lipstick--pastell: #dc80ba;
+$color-violet-meteorite--pastell: #a791bf;
+$color-blue-dark-bahama-blue--pastell: #7faac8;
+$color-blue-light-lochmara--pastell: #7fc6e7;
+$color-turquoise-bondi-blue--pastell: #7fd3d7;
+$color-blue-tropical--pastell: #ccebf8;
+$color-blue-botticelli--pastell: #cce0eb;
+
+// ==========================================================================
+// Support colors
+// ==========================================================================
+
+//
+// Main support colors
+// ==========================================================================
+
+$color-gray-shuttle: #525f6b;
+$color-gray-silver-sand: #bfc0c2;
+$color-black-pitch-dark: #000000;
+$color-white-paper-white: #ffffff;
+$color-gray-solid: #808080;
+$color-gray-athens: #fafbfc;
+$color-gray-alabaster: #f7f7f7;
+$color-gray-mercury: #e6e6e6;
+$color-gray-alto-light: #dddddd;
+$color-gray-alto: #d9d9d9;
+$color-gray-silver: #cccccc;
+$color-gray-tundora: #4d4d4d;
+$color-gray-mine-shaft: #333333;
+$color-gray-moon: #b7b7b7;
+$color-gray-depression: #d4d7da;
+$color-gray-gallery: #f0f0f0;
+$color-gray-londonfog: #7d8790;
+$color-gray-iron: #cfd0d1;
+
+//
+// Variations of the support colors
+// ==========================================================================
+
+$color-gray-shuttle--pastell: #a8afb5;
+$color-gray-silver-sand--pastell: #dfdfe0;
+$color-black-pitch-dark--pastell: $color-black-pitch-dark;
+$color-white-paper-white--pastell: #ffffff;
+
+// ==========================================================================
+// Bootstrap color variables
+// ==========================================================================
+
+// After having defined the colors we will use in the brand
+// and having name them after their color name and name of the shade
+// we define the funtional colors. These are the variables we will use
+// along the project
+// Most of these variables names are taken from Bootstrap and are used there
+// Hence the suboptimal titles for the gray-shades, should not be edited
+
+// Note: These color names are following Bootstrap naming conventions.
+// Which are indeed against our pattern
+$brand-primary: $color-blue-dark-bahama-blue;
+$brand-success: $color-green-tropical-rain-forest;
+$brand-info: $color-blue-dark-bahama-blue;
+$brand-warning: $color-yellow-sunlight;
+$brand-danger: $color-red-monza;
+$brand-validation: $color-green-lima;
+
+$gray-base: $color-black-pitch-dark;
+$gray-darker: lighten($gray-base, 13.5%);
+$gray-dark: lighten($gray-base, 20%);
+$gray: lighten($gray-base, 33.5%);
+$gray-light: lighten($gray-base, 46.7%);
+$gray-lighter: lighten($gray-base, 93.5%);
+
+// ==========================================================================
+// Functional colors
+// ==========================================================================
+
+$background-color-base: $color-white-paper-white;
+$main-content-background-color: $color-gray-alabaster;
+$font-color-base: $color-black-pitch-dark;
+$font-color-base--inverted: $color-white-paper-white;
+$component-background-color--active: $color-gray-alabaster;
+$component-divider-color: $color-gray-mercury;
+$component-text-inactive: $color-gray-solid;
+$preload-box-background-color: $color-gray-alabaster;
+
+//
+// Links
+// ==========================================================================
+
+$link-color--primary: $brand-primary;
+$link-color--secondary: $color-gray-silver-sand;
+$link-color--inverted: $color-white-paper-white;
+
+$link-color--primary--hover: $font-color-base;
+$link-color--secondary--hover:  $font-color-base;
+$link-color--inverted--hover: $color-gray-silver-sand;
+
+$navigation-link-color--active: $color-blue-dark-bahama-blue;
+
+//
+// Colors for the gradients
+// ==========================================================================
+
+$gradient-pair-variations:(
+  fuchsia-violet:($color-fuchsia-lipstick, $color-violet-meteorite),
+  red-fuchsia:($color-red-monza, $color-fuchsia-lipstick),
+  violet-darkBlue:($color-violet-meteorite, $color-blue-dark-bahama-blue),
+  darkBlue-lightBlue:($color-blue-dark-bahama-blue, $color-blue-light-lochmara),
+  lightBlue-turquoise:($color-blue-light-lochmara, $color-turquoise-bondi-blue),
+  turquoise-lightGreen: ($color-turquoise-bondi-blue, $color-green-lima),
+  lightGreen-darkGreen: ($color-green-lima, $color-green-tropical-rain-forest),
+);
+
+//
+// Special rgba settings for the custom webkit scrollbar
+// ==========================================================================
+
+$custom-scrollbar-webkit-track: rgba(0, 0, 0, 0.1);
+$custom-scrollbar-webkit-thumb: rgba(0, 0, 0, 0.2);
+$custom-scrollbar-webkit-thumb--hover: rgba(0, 0, 0, 0.4);
+$custom-scrollbar-webkit-thumb--window-inactive: rgba(0, 0, 0, 0.05);
+
+//
+// Social network colors for social post molecule
+// ==========================================================================
+
+// source: https://de.facebookbrand.com/assets
+$socialpost-color-facebook: #3b5998;
+
+// source: https://www.youtube.com/yt/brand/color.html
+$socialpost-color-youtube:  #e52d27;
+
+// source (for lack of any official guideline): https://brandcolors.net/b/google-plus
+$socialpost-color-googleplus: #dd4b39;
+
+// source: https://brand.twitter.com/de.html
+$socialpost-color-twitter: #1da1f3;
+
+// source: https://www.tumblr.com/logo
+$socialpost-color-tumblr: #35465c;
+
+// source: https://business.pinterest.com/de/brand-guidelines
+$socialpost-color-pinterest: #bd081c;
+
+// source: https://en.instagram-brand.com/assets/glyph-icon =>
+//         https://en.instagram-brand.com/wp-content/uploads/2016/11/04.png?w=560&h=188
+$socialpost-color-instagram: #d93175;

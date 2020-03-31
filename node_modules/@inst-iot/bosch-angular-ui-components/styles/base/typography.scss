@@ -1,0 +1,346 @@
+// ==========================================================================
+// Definition of typography
+// ==========================================================================
+
+// General html and body definitions
+// ==========================================================================
+
+// Text
+//
+// Styleguide 0.1
+
+html,
+// This is a common class which will be applied
+// to the styleguide:
+// "Since each component's markup is isolated from the
+// application styles with Shadow DOM, styles defined in <html> or
+// <body> tags will not apply in the component previews"
+.sg-common-class {
+  font-size: 100%;
+}
+
+body,
+.sg-common-class {
+  color: $font-color-base;
+
+  // Fonts will be lazy loaded in a next release of the .com site.
+  // Code has been disabled in the mean time, because we want
+  // to do more tests to avoid FOUT
+  font-family: $base-font-family--lazyloaded;
+}
+
+@each $name, $value in $font-sizes {
+  .font-size-#{$name} {
+    font-size: $value;
+  }
+}
+
+//
+// Headlines
+// ==========================================================================
+
+// Headings
+//
+// Markup:
+// <h1>This is a H1 Headline</h1>
+// <h2>This is a H2 Headline</h2>
+// <h3>This is a H3 Headline</h3>
+// <h4>This is a H4 Headline</h4>
+// <h5>This is a H5 Headline</h5>
+// <h6>This is a H6 Headline</h6>
+//
+// Styleguide 0.1.1
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $headline-font-weight;
+  line-height: $headline-line-height;
+}
+
+.h1,
+h1 {
+  font-size: map-get($heading-font-sizes, h1-xs);
+}
+
+.h2,
+h2 {
+  font-size: map-get($heading-font-sizes, h2-xs);
+}
+
+.h3,
+h3 {
+  font-size: map-get($heading-font-sizes, h3-xs);
+}
+
+.h4,
+h4 {
+  font-size: map-get($heading-font-sizes, h4-xs);
+}
+
+.h5,
+h5 {
+  font-size: map-get($heading-font-sizes, h5-xs);
+}
+
+.h6,
+h6 {
+  font-size: map-get($heading-font-sizes, h6-xs);
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: $headline-spacing-bottom--xs;
+}
+
+//
+// Paragraph text classes
+// ==========================================================================
+
+// Paragraph
+//
+// Standard text format of the body
+//
+// Markup:
+// <p>This is a standard paragraph text.</p>
+//
+// Styleguide 0.1.2
+
+p {
+  font-size: $copy-font-size;
+  font-weight: $copy-font-weight;
+  line-height: $copy-line-height;
+}
+
+//
+// Caption
+// ==========================================================================
+
+// Caption
+//
+// Used for subtitling images
+//
+// Markup:
+// <small class="u-TextCaption">This is an image caption text.</small>
+//
+// Styleguide 0.1.3
+
+.u-TextCaption,
+figcaption,
+small {
+  font-size: $caption-font-size;
+  line-height: $caption-line-height;
+}
+
+//
+// Links
+// ==========================================================================
+
+// Default Link
+//
+// There are several variations of links.
+// By default the link will be inlined
+//
+// Markup:
+// <a href="#">This is a link</a>
+//
+// Styleguide 0.1.4
+
+a {
+  color: $link-color--primary;
+  font-weight: $copy-font-weight;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:active,
+  &:hover,
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:active,
+  &:hover {
+    color: $link-color--primary--hover;
+    cursor: pointer;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.u-TextColor--white {
+  color: $color-white-paper-white;
+}
+
+.u-TextColor--black {
+  color: $color-black-pitch-dark;
+}
+
+.u-TextColor--red {
+  color: $color-red-monza;
+}
+
+.u-TextColor--violet {
+  color: $color-violet-meteorite;
+}
+
+.u-TextColor--fuchsia {
+  color: $color-fuchsia-lipstick;
+}
+
+.u-TextColor--darkBlue {
+  color: $color-blue-dark-bahama-blue;
+}
+
+.u-TextColor--lightBlue {
+  color: $color-blue-light-lochmara;
+}
+
+.u-TextColor--turquoise {
+  color: $color-turquoise-bondi-blue;
+}
+
+.u-TextColor--lightGreen {
+  color: $color-green-lima;
+}
+
+.u-TextColor--darkGreen {
+  color: $color-green-tropical-rain-forest;
+}
+
+.componentHeader {
+  font-size: 2rem;
+}
+
+.subline {
+  color: $color-gray-londonfog;
+  font-size: map-get($font-sizes, smaller);
+
+  a {
+    color: $color-gray-silver-sand;
+  }
+  a:hover {
+    color: $color-gray-londonfog;
+  }
+}
+
+.subline-scaled {
+  font-size: map-get($font-sizes, small);
+}
+
+
+//
+// Headlines
+// ==========================================================================
+
+h1,
+.h1 {
+  font-size: map-get($heading-font-sizes, h1-sm);
+}
+
+h2,
+.h2 {
+  font-size: map-get($heading-font-sizes, h2-sm);
+}
+
+h3,
+.h3 {
+  font-size: map-get($heading-font-sizes, h3-sm);
+}
+
+h4,
+.h4 {
+  font-size: map-get($heading-font-sizes, h4-sm);
+}
+
+h5,
+.h5 {
+  font-size: map-get($heading-font-sizes, h5-sm);
+}
+
+h6,
+.h6 {
+  font-size: map-get($heading-font-sizes, h6-sm);
+}
+
+//
+// Paragraph
+// ==========================================================================
+
+p {
+  font-size: $copy-font-size--sm;
+}
+
+
+@media (min-width: map-get($rb-grid-breakpoints, sm)) {
+  h1,
+  .h1 {
+    font-size: map-get($heading-font-sizes, h1-md);
+  }
+
+  h2,
+  .h2 {
+    font-size: map-get($heading-font-sizes, h2-md);
+  }
+
+  h3,
+  .h3 {
+    font-size: map-get($heading-font-sizes, h3-md);
+  }
+
+  h4,
+  .h4 {
+    font-size: map-get($heading-font-sizes, h4-md);
+  }
+
+  h5,
+  .h5 {
+    font-size: map-get($heading-font-sizes, h5-md);
+  }
+
+  h6,
+  .h6 {
+    font-size: map-get($heading-font-sizes, h6-md);
+  }
+
+  p {
+    font-size: $copy-font-size--md;
+  }
+
+  .componentHeader {
+    font-size: 3rem;
+  }
+  .subline-scaled {
+    font-size: map-get($font-sizes, medium);
+  }
+}
+@media (min-width: map-get($rb-grid-breakpoints, md)) {
+  .componentHeader {
+    font-size: 4rem;
+  }
+  .subline-scaled {
+    font-size: map-get($font-sizes, big);
+  }
+}

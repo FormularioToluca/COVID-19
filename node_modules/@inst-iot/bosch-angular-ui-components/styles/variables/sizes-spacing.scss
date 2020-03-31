@@ -1,0 +1,113 @@
+// ==========================================================================
+// Definition of margin and padding distances
+// ==========================================================================
+
+//
+// Usage of the three global maps
+// ==========================================================================
+//
+// --xs: Use this map for mobile devices with a vieport width <768px.
+// --sm: Use this map for tablets or other devices with a vieport width ≥768px.
+// --md: Use this map for devices with a vieport width ≥992px.
+
+$default-spacing: 1rem;
+
+$spacing-vertical: (
+  xxs: 2px,
+  xs: 5px,
+  s: 10px,
+  m: 15px,
+  l: 20px,
+  ls: 25px,
+  xl: 30px,
+  xlxs: 35px,
+  xls: 40px,
+  xlms: 45px,
+  xlm: 50px,
+  xxl: 60px,
+  xxxls: 65px,
+  xxxl: 80px,
+  xxxxl: 100px,
+  giga: 130px
+);
+
+//
+// Global settings
+// ==========================================================================
+
+$spacing-vertical--xs: (
+  xs: 15px,
+  s: 18px,
+  m: 30px,
+  xl: 50px,
+  xxl: 60px
+);
+
+$spacing-vertical--sm: (
+  s: 25px,
+  m: 40px,
+  l: 50px,
+  xl: 80px
+);
+
+$spacing-vertical--md: (
+  s: 30px,
+  m: 50px,
+  l: 70px,
+  xl: 75px
+);
+
+$spacing-vertical-special--xs: 10px;
+
+$grid-gutter-width: 30px;
+
+//
+// Functional spacing definitions
+// ==========================================================================
+
+$form-element-height: 48px;
+// In case we have an inline element (like a link)
+// that needs to have 48px, we need to set the height via
+// paddings, this way we ensure that the text is vertically centered.
+// In such cases, we use this variable.
+$inline-form-element-height: 11px;
+$navigation-item-height--small: 30px;
+$supergraphic-height: 16px;
+$navigation-main-toggle-size: 24px;
+$grid-margin-width: $grid-gutter-width / 2;
+$meta-navigation-vertical-spacing-md: map-get($spacing-vertical, s);
+$header-navigation-row-height--md: map-get($spacing-vertical--md, xl);
+$header-navigation-row-height--xs: map-get($spacing-vertical--xs, xxl);
+$navigation-main-colSpan--md: 7;
+$header-SearchField-colSpan--md: 2;
+
+//The vertical spacing defined in the designs is based on visual space. In our case, there is
+//a spacing being added by the natural kerning of the font that we need to consider when handling it
+$headline-spacing-bottom--xs: map-get($spacing-vertical, xl);
+
+$header-horizontal-separator-width: 1px;
+
+$copy-vertical-spacing-bottom--xs: map-get($spacing-vertical--xs, m);
+$copy-vertical-spacing-bottom--sm: map-get($spacing-vertical--sm, m);
+
+$component-container-vertical-spacing--xs: map-get($spacing-vertical--xs, m);
+$component-container-vertical-spacing--sm: map-get($spacing-vertical--sm, m);
+
+$component-container-vertical-spacing--double--sm: map-get($spacing-vertical--sm, xl);
+$component-container-vertical-spacing--giga--md:  map-get($spacing-vertical, xxxxl);
+
+// Icon sizes
+$icon-size--socialShare--width: 38px;
+$icon-size--socialShare--protection: 6px;
+$icon-size--socialShare: $icon-size--socialShare--width + $icon-size--socialShare--protection;
+$icon-size--socialMediaShare: 60px;
+$icon-size--embeddedPost: 30px;
+$icon-size--search: 20px;
+$icon-size--close: 13px;
+$icon-size--close-big: 17px;
+$icon-size--list-cross-width: 11px;
+$icon-size--list-cross-height: 11px;
+$icon-size--list-check-width: 11px;
+$icon-size--list-check-height: 9px;
+$icon-size--arrow-down-thin-width: 15px;
+$icon-size--arrow-down-thin-height: 6px;

@@ -1,0 +1,48 @@
+rb-breadcrumbs {
+  .breadcrumbs {
+    margin: 0;
+    padding: 0 $default-spacing;
+    li {
+      list-style: none;
+      display: inline-block;
+      font-size: map-get($font-sizes, smallest);
+      padding: map-get($spacing-vertical, s) 0;
+      color: $color-gray-silver-sand;
+      &::before {
+        content: "❯";
+        display: inline-block;
+        padding: 0 0.5em;
+        font-weight: lighter;
+      }
+      &:first-child::before {
+        display:none;
+      }
+      &:last-child {
+        a {
+          color: $color-black-pitch-dark;
+        }
+      }
+      a {
+        color: $color-gray-silver-sand;
+        &:hover {
+          color: $navigation-link-color--active;
+          text-decoration: none;
+        }
+        &.active {
+          color: $navigation-link-color--active;
+        }
+      }
+    }
+
+  }
+
+  .breadcrumbs-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .breadcrumbs-right {
+    font-size: map-get($font-sizes, smallest);
+    padding: map-get($spacing-vertical, s) $default-spacing;
+  }
+}

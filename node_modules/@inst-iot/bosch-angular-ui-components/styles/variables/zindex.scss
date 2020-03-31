@@ -1,0 +1,87 @@
+// ==========================================================================
+// Definition of various z-indexes
+// ==========================================================================
+
+//
+// Bootstrap Z-index master list
+// ==========================================================================
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+// Note: These variables are not generated into the Customizer.
+// This variable list was taken from bootstrap-variables.scss
+
+$zindex-navbar: 1000;
+$zindex-dropdown: 1000;
+$zindex-popover: 1060;
+$zindex-tooltip: 1070;
+$zindex-navbar-fixed: 1030;
+$zindex-modal-background: 1040;
+$zindex-modal: 1050;
+
+//
+// Z-Indexes working together in Header and main.
+// ==========================================================================
+// If you need to modify any of these test against the navigation, search, autosuggestions in mobile
+// And the anchor navigation and autosuggestions in desktop
+
+$header-z-index: 2;
+$header-search-z-index: 2;
+
+$navigation-main-items-flyout-z-index--remove: -1;
+$navigation-main-items-flyout-z-index: 1;
+$navigation-sub-items-flyout-z-index: 1;
+
+$main-z-index--xs: 1;
+$main-z-index--md: unset;
+
+$anchor-navigation-navigation-z-index: 3;
+
+//
+// Form field
+// ==========================================================================
+
+// In order to be able to animate the background of the input
+// on focus, we are adding a <span> that contains the background,
+// therefore we need to handle the layers of the input accordingly.
+
+$form-field-background-z-index: 0;
+$form-field-image-z-index: 1;
+$form-field-control-z-index: 2;
+$form-field-label-z-index: 3;
+
+$navigation-tabs-scroll-indicator-z-index: 1;
+
+//
+// Load more
+// ==========================================================================
+$button-load-more-loader-z-index: 1;
+
+//
+// Story teaser
+// ==========================================================================
+$story-teaser-text-z-index: 1;
+
+//
+// Modal
+// ==========================================================================
+$modal-z-index: 11;
+$modal-close-z-index: 1;
+
+// Jumbotron
+// ==========================================================================
+$text-image-jumbotron-social-share-icons-z-index: 3;
+$hotspot-jumbotron-text-image-jumbotron-z-index: 2;
+$hotspot-jumbotron-icon-close-z-index: 5;
+
+// Form responsive slider
+// ==========================================================================
+$responsive-slider-thumb-z-index: 1;
+
+// Social Media Share
+// ==========================================================================
+$text-highlight-social-media-share-icon-z-index: 3;
+
+// Map
+// ==========================================================================
+$info-window-z-index: 2;
