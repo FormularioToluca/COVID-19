@@ -20,7 +20,7 @@ export class CovidService {
 
   getAnswers(data:any) {
     return new Promise<any>((resolve, reject) => {
-      this.firestore.collection("suvery", ref => ref.where('date','==',data.date)).valueChanges().subscribe(val=>{
+      this.firestore.collection("suvery", ref => ref.where('date','==',data.date).where('depto','==',data.depto).where('line','==',data.line, ).where('type','==',data.type)).valueChanges().subscribe(val=>{
         resolve(val)
       }, error=>{reject(error)})
 

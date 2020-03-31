@@ -3954,29 +3954,34 @@ export class FormularioCovid19Component implements OnInit {
     let name = this.employees.filter(x => x.number == this.data.employee);
 
     this.data.name = (name.length > 0) ? name[0].name : "N/F";
-    //console.log(this.data);
-
-    this.covid.registerAnswers(this.data).then(res => {
-      console.log(res);
+    if(name.length == 0){
+      this.showError('Verificar número de empleado/Verify employee number.(Después de 3 intentos contactar a  tu supervisor/After 3 attemps contact  your supervisor)');
       this.sending = false;
-      this.data = {
-        employee: null,
-        depto: null,
-        date: null,
-        temperature: null,
-        transport: null,
-        places: null,
-        contact: null,
-        reunions: null,
-        type: null,
-        line: null,
-        name: null
-      }
-      this.showSuccess('Respuestas guardadas/ Answers saved');
-    }).catch(error => {
-      console.error(error);
+    }else{
+      this.covid.registerAnswers(this.data).then(res => {
+        console.log(res);
+        this.sending = false;
+        this.data = {
+          employee: null,
+          depto: null,
+          date: null,
+          temperature: null,
+          transport: null,
+          places: null,
+          contact: null,
+          reunions: null,
+          type: null,
+          line: null,
+          name: null
+        }
+        this.showSuccess('Respuestas guardadas/ Answers saved');
+      }).catch(error => {
+        console.error(error);
+  
+      })
+    }
 
-    })
+    
 
   }
 
@@ -3999,11 +4004,16 @@ export class FormularioCovid19Component implements OnInit {
 
 
   showSuccess(msg: string) {
-
-
     swal.fire({
       icon: 'success',
       title: 'Success...',
+      text: msg,
+    })
+  }
+  showError(msg: string) {
+    swal.fire({
+      icon: 'error',
+      title: 'error...',
       text: msg,
     })
   }

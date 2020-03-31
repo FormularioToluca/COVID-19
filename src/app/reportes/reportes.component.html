@@ -1,47 +1,61 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <p class="esp">Departamento</p>
-            <p class="eng">Department</p>
-            <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="data.depto"
-                [ngbTypeahead]="search" />
-        </div>
-        <div class="col">
-            <p class="esp">Líneas (Si no aplica, coloque N/A)</p>
-            <p class="eng">Line (If not applicable, type N/A)</p>
-            <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="data.line"
-                [ngbTypeahead]="searchLines" />
-        </div>
-        <div class="col">
-            <p class="esp">Fecha de entrada a TlP</p>
-            <p class="eng">Entry date</p>
-            <rb-form-date-input [(ngModel)]="data.date"></rb-form-date-input>
-        </div>
-        <div class="col">
-            <p class="esp">Tipo de entrada a TlP</p>
-            <p class="eng">Entry type</p>
-            <select class="custom-select" [(ngModel)]="data.type">
-                <option value="Turno 1">Turno 1</option>
-                <option value="Turno 2">Turno 2</option>
-                <option value="Turno 3">Turno 3</option>
-                <option value="Turno 4">Turno 4</option>
-                <option value="Medio día por la mañana">Medio día por la mañana</option>
-                <option value="Medio día por la tarde">Medio día por la tarde</option>
-                <option value="Día completo">Día completo</option>
-            </select>
-        </div>
-        <div class="col">
-            <label for="btn">Generar reporte / Generate report</label>
-            <button class="btn btn-block btn-info" (click)="getData()">
-                Generar reporte / Generate report
-            </button>
-        </div>
+    <div class="table-responsive table-borderless">
+        <table class="table">
+            <thead>
+                <th>
+                    <p class="esp">Departamento</p>
+                    <p class="eng">Department</p>
+                </th>
+                <th>
+                    <p class="esp">Líneas (Si no aplica, coloque N/A)</p>
+                    <p class="eng">Line (If not applicable, type N/A)</p>
+                </th>
+                <th>
+                    <p class="esp">Fecha de entrada a TlP</p>
+                    <p class="eng">Entry date</p>
+                </th>
+                <th>
+                    <p class="esp">Tipo de entrada a TlP</p>
+                    <p class="eng">Entry type</p>
+                </th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="data.depto"
+                            [ngbTypeahead]="search" /></td>
+                    <td>
+                        <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="data.line"
+                            [ngbTypeahead]="searchLines" />
+                    </td>
+                    <td>
+                        <rb-form-date-input [(ngModel)]="data.date"></rb-form-date-input>
+                    </td>
+                    <td>
+                        <select class="custom-select" [(ngModel)]="data.type">
+                            <option value="Turno 1">Turno 1</option>
+                            <option value="Turno 2">Turno 2</option>
+                            <option value="Turno 3">Turno 3</option>
+                            <option value="Turno 4">Turno 4</option>
+                            <option value="Medio día por la mañana">Medio día por la mañana</option>
+                            <option value="Medio día por la tarde">Medio día por la tarde</option>
+                            <option value="Día completo">Día completo</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn btn-block btn-info" (click)="getData()">
+                            Generar reporte / Generate report
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="col-md-12 table-responsive mb-2 mt-2" #epltable>
         <div style="padding-bottom: 10px;padding-top: 10px;">
             <div class="row">
                 <div class="col-sm-12">
-                    <button (click)="exportToExcel()" class="btn btn-success">Export To Excel</button>
+                    <button (click)="exportToExcel()" class="btn btn-success">Exporta a Excel</button>
                 </div>
             </div>
         </div>
@@ -51,6 +65,7 @@
                     <th>Departamento</th>
                     <th>Líneas</th>
                     <th>Num Empleado</th>
+                    <th>Nombre del empleado</th>
                     <th>Fecha de entrada a TlP</th>
                     <th>Tipo de entrada a TlP</th>
                     <th>¿Los empleados toman su propia temperatura antes de venir a TlP?</th>
@@ -68,6 +83,7 @@
                     <td>{{r.depto}}</td>
                     <td>{{r.line}}</td>
                     <td>{{r.employee}}</td>
+                    <td>{{r.name}}</td>
                     <td>{{r.date}}</td>
                     <td>{{r.type}}</td>
                     <td>{{r.temperature}}</td>
